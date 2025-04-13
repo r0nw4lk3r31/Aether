@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { 
   Files, Search, GitBranch, Calendar, CheckSquare, Mail, 
-  Globe, UserCircle, FolderDot, BarChart2, Settings, MessageSquare
+  Globe, UserCircle, FolderDot, BarChart2, Settings, MessageSquare, PanelLeft
 } from 'lucide-react';
 
 interface ActivityBarProps {
@@ -11,6 +10,7 @@ interface ActivityBarProps {
   toggleSidebar: () => void;
   toggleAIPanel: () => void;
   aiPanelVisible: boolean;
+  sidebarVisible: boolean;
 }
 
 const ActivityBar: React.FC<ActivityBarProps> = ({ 
@@ -18,7 +18,8 @@ const ActivityBar: React.FC<ActivityBarProps> = ({
   setActiveView, 
   toggleSidebar,
   toggleAIPanel,
-  aiPanelVisible
+  aiPanelVisible,
+  sidebarVisible 
 }) => {
   // Array of activity icons
   const activities = [
@@ -62,6 +63,21 @@ const ActivityBar: React.FC<ActivityBarProps> = ({
       ))}
       
       <div className="mt-auto">
+        {/* Sidebar toggle button */}
+        <div 
+          className={`relative mb-2 p-2 cursor-pointer group ${
+            !sidebarVisible ? 'text-vscode-accent' : 'text-vscode-foreground/70 hover:text-vscode-foreground'
+          }`}
+          onClick={toggleSidebar}
+        >
+          <PanelLeft size={24} />
+          
+          {/* Tooltip */}
+          <div className="absolute left-12 top-1/2 -translate-y-1/2 bg-vscode-tooltip text-vscode-tooltip-foreground px-2 py-1 rounded opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity whitespace-nowrap text-xs z-10">
+            {sidebarVisible ? 'Hide Sidebar' : 'Show Sidebar'}
+          </div>
+        </div>
+        
         {/* AI Assistant button */}
         <div 
           className={`relative mb-2 p-2 cursor-pointer group ${

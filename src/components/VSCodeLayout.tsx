@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ActivityBar from './ActivityBar';
 import SideBar from './SideBar';
@@ -119,6 +118,7 @@ const VSCodeLayout: React.FC = () => {
           toggleSidebar={toggleSidebar} 
           toggleAIPanel={toggleAIPanel}
           aiPanelVisible={aiPanelVisible}
+          sidebarVisible={sidebarVisible}
         />
         
         {sidebarVisible && (
