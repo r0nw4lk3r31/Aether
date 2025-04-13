@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,22 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// VSCode specific colors
+				vscode: {
+					'background': '#1E1E1E',
+					'foreground': '#D4D4D4',
+					'accent': '#007ACC',
+					'sidebar': '#252526',
+					'sidebar-border': '#303031',
+					'tab-active': '#1E1E1E',
+					'tab-inactive': '#2D2D2D',
+					'panel': '#1E1E1E',
+					'editor': '#1E1E1E',
+					'statusbar': '#007ACC',
+					'titlebar': '#3C3C3C',
+					'selection': '#264F78',
+					'activity-bar': '#333333',
 				}
 			},
 			borderRadius: {
