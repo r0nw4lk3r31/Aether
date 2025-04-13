@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import ActivityBar from './ActivityBar';
 import SideBar from './SideBar';
 import EditorArea from './EditorArea';
 import StatusBar from './StatusBar';
 import TitleBar from './TitleBar';
+import AIPanel from './AIPanel';
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export type Module = {
@@ -31,6 +33,9 @@ const VSCodeLayout: React.FC = () => {
   // Track if sidebar is visible
   const [sidebarVisible, setSidebarVisible] = useState(true);
   
+  // Track if AI panel is visible
+  const [aiPanelVisible, setAiPanelVisible] = useState(false);
+  
   // State for tabs
   const [tabs, setTabs] = useState<TabItem[]>([]);
   const [activeTabId, setActiveTabId] = useState<string | null>(null);
@@ -41,6 +46,11 @@ const VSCodeLayout: React.FC = () => {
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
+  };
+
+  // Toggle AI panel visibility
+  const toggleAIPanel = () => {
+    setAiPanelVisible(!aiPanelVisible);
   };
 
   // Open a new tab
@@ -103,7 +113,13 @@ const VSCodeLayout: React.FC = () => {
       <TitleBar />
       
       <div className="flex flex-1 overflow-hidden">
-        <ActivityBar activeView={activeView} setActiveView={setActiveView} toggleSidebar={toggleSidebar} />
+        <ActivityBar 
+          activeView={activeView} 
+          setActiveView={setActiveView} 
+          toggleSidebar={toggleSidebar} 
+          toggleAIPanel={toggleAIPanel}
+          aiPanelVisible={aiPanelVisible}
+        />
         
         {sidebarVisible && (
           <SideBar 
@@ -158,10 +174,19 @@ const VSCodeLayout: React.FC = () => {
             </Tabs>
           </div>
           
-          <EditorArea 
-            activeTabId={activeTabId}
-            tabs={tabs}
-          />
+          <div className="flex flex-1 overflow-hidden">
+            <EditorArea 
+              activeTabId={activeTabId}
+              tabs={tabs}
+            />
+            
+            {aiPanelVisible && (
+              <AIPanel 
+                isVisible={aiPanelVisible}
+                toggleVisibility={toggleAIPanel}
+              />
+            )}
+          </div>
         </div>
       </div>
       
