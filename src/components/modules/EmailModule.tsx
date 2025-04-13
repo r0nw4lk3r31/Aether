@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Inbox, Send, Archive, Trash, Star, Mail, Search, Paperclip, BookmarkPlus } from 'lucide-react';
+import { Inbox, Send, Archive, Trash, Star, Mail, Search, Paperclip, BookmarkPlus, Plus } from 'lucide-react';
 
 const EmailModule: React.FC = () => {
   return (

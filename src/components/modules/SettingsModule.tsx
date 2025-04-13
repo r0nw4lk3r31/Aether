@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Settings, Key, User, Globe, Bell, Shield, Moon, Sun, Bot, Mail, BellRing, BellOff } from 'lucide-react';
+import { Settings, Key, User, Globe, Bell, Shield, Moon, Sun, Bot, Mail, BellRing, BellOff, Eye, Twitter, Trash } from 'lucide-react';
 
 const SettingsModule: React.FC = () => {
   const [activeTab, setActiveTab] = useState('general');

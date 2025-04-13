@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Folder, File, ChevronRight, ChevronDown, Upload, Download, Trash, FilePlus, FolderPlus, Move } from 'lucide-react';
+import { Folder, File, ChevronRight, ChevronDown, Upload, Download, Trash, FilePlus, FolderPlus, Move, FolderOpen } from 'lucide-react';
 
 interface FileItem {
   id: string;
